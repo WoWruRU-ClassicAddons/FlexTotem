@@ -41,12 +41,14 @@ TOTEM_STOMP = "Stomp";
 TOTEM_SHAMAN = "Shaman";
 
 TOTEM_NAME_STRING = "$N Totem";
+TOTEM_SENTRYSEARING_STRING = "$N Totem";
 
 TOTEM_CAST_REGEX = "You cast (.+) Totem%.";
 TOTEM_DEATH_REGEX = "(.+) Totem ?(%a*) is destroyed%.";
 TOTEM_DAMAGE_REGEX = { ".+ [crh]+its (.+) Totem ?(%a*) for (%d+)." };
 
 TOTEM_NAME_REGEX = "(.+) Totem";
+TOTEM_NAME_REGEX_2 = "NONE";
 TOTEM_RANK_REGEX = "Rank (%d+)";
 TOTEM_RANK_NAME_REGEX = "%((Rank %d+)%)";
 TOTEM_ELEMENT_REGEX = "Tools: (.+) Totem";
@@ -119,7 +121,125 @@ TOTEM_SETTINGS_LOCK_ENABLED = "Default configuration is now locked.";
 TOTEM_SETTINGS_LOCK_DISABLED = "Default configuration is now unlocked.";
 TOTEM_SETTINGS_NO_SEQUENCE = "You have no stomper sequence to report.";
 
-if ( GetLocale() == "deDE" ) then
+if ( GetLocale() == "ruRU" ) then
+-- Version : Russian ( by Maus )
+
+TOTEM_DISEASE_CLEANSING = "очищения от болезней";
+TOTEM_EARTHBIND = "оков земли";
+TOTEM_FIRE_NOVA = "кольца огня";
+TOTEM_FIRE_RESISTANCE = "защиты от огня";
+TOTEM_FROST_RESISTANCE = "защиты от магии льда";
+TOTEM_FLAMETONGUE = "языка пламени";
+TOTEM_GRACE_OF_AIR = "легкости воздуха";
+TOTEM_GROUNDING = "заземления";
+TOTEM_HEALING_STREAM = "исцеляющего потока";
+TOTEM_MAGMA = "магмы";
+TOTEM_MANA_SPRING = "источника маны";
+TOTEM_MANA_TIDE = "прилива маны";
+TOTEM_NATURE_RESISTANCE = "защиты от сил природы";
+TOTEM_POISON_CLEANSING = "противоядия";
+TOTEM_SEARING = "Опаляющий";
+TOTEM_SENTRY = "Сторожевой";
+TOTEM_STONECLAW = "каменного когтя";
+TOTEM_STONESKIN = "каменной кожи";
+TOTEM_STRENGTH_OF_EARTH = "силы земли";
+TOTEM_TRANQUIL_AIR = "безветрия";
+TOTEM_TREMOR = "трепета";
+TOTEM_WINDFURY = "неистовства ветра";
+TOTEM_WINDWALL = "стены ветра";
+
+TOTEM_EARTH = "земли";
+TOTEM_AIR = "воздуха";
+TOTEM_WATER = "воды";
+TOTEM_FIRE = "огня";
+TOTEM_STOMP = "Топот";
+TOTEM_SHAMAN = "Шаман";
+
+TOTEM_NAME_STRING = "Тотем $N";
+TOTEM_SENTRYSEARING_STRING = "$N тотем"
+
+TOTEM_CAST_REGEX = "Вы применяете заклинание \"Тотем (.+)\"%.";
+TOTEM_DEATH_REGEX = "Уничтожено: Тотем (.+) (%a*)%.";
+TOTEM_DAMAGE_REGEX = {
+	"Тотем (.+) наносит (.+) (%d+) ед. урона: критический удар.",
+	"Тотем (.+) наносит (.+) (%d+) ед. урона."
+};
+
+TOTEM_NAME_REGEX = "Тотем (.+)";
+TOTEM_NAME_REGEX_2 = "(.+) тотем";
+TOTEM_RANK_REGEX = "Уровень (%d+)";
+TOTEM_RANK_NAME_REGEX = "%((Уровень %d+)%)";
+TOTEM_ELEMENT_REGEX = "Инструменты: Тотем (.+)";
+
+--[[ TRIVIAL LOCALIZATION ]]--
+
+TOTEM_SLASH = {};
+TOTEM_SLASH[1] = "Важные команды. Введите |r/flextotem help|cffffff90 для получения полного списка команд.";
+TOTEM_SLASH[2] = "|cffffff90/flextotem default |r: установить настройки по умолчанию";
+TOTEM_SLASH[3] = "|cffffff90/flextotem default help |r: настроить настройки по умолчанию.";
+TOTEM_SLASH[4] = "|cffffff90/flextotem remove |r: удалить настройки по умолчанию.";
+TOTEM_SLASH[5] = "|cffffff90/flextotem lock |r: переключение блокировки/разблокировки настроек по умолчанию.";
+TOTEM_SLASH[6] = "|cffffff90/flextotem advanced |r: вкл/выкл расширенный режим stomper.";
+
+TOTEM_DEFAULT = {};
+TOTEM_DEFAULT[1] = "Стандартные настройки опции. Все параметры опциональны.";
+TOTEM_DEFAULT[2] = "|cffffff90/flextotem default start=# scale1=# scale2=# padding=# x=# y=#";
+TOTEM_DEFAULT[3] = "|cffffff90start |r: начинать с этой кнопки и следующие 26 кнопок (по умолчанию 90)";
+TOTEM_DEFAULT[4] = "|cffffff90scale1 |r: масштаб таймера кнопок (по умолчанию 10)";
+TOTEM_DEFAULT[5] = "|cffffff90scale2 |r: масштаб кнопок в сетке (по умолчанию 8)";
+TOTEM_DEFAULT[6] = "|cffffff90padding |r: пространство между кнопками (по умолчанию 3)";
+TOTEM_DEFAULT[7] = "|cffffff90x |r: х-координаты нижнего левого угла (по умолчанию 300)";
+TOTEM_DEFAULT[8] = "|cffffff90y |r: у-координаты нижнего левого угла (по умолчанию 300)";
+TOTEM_DEFAULT[9] = "|cffffff90align |r: вверху или внизу (по умолчанию вверху)";
+
+TOTEM_HELP = {};
+TOTEM_HELP[1] = "Все доступные команды:";
+TOTEM_HELP[2] = "|cffffff90/flextotem debug [on|off] |r: вкл/выкл отладочной информации.";
+TOTEM_HELP[3] = "|cffffff90/flextotem silent [on|off] |r: вкл/выкл полное молчание.";
+TOTEM_HELP[4] = "|cffffff90/flextotem reset |r: восстановить исходные настройки.";
+TOTEM_HELP[5] = "|cffffff90/flextotem buttons |r: показать текущие настройки кнопок.";
+TOTEM_HELP[6] = "|cffffff90/flextotem air <number> |r: закрепить таймер тотема воздуха в flexbutton <номер>.";
+TOTEM_HELP[7] = "|cffffff90/flextotem earth <number> |r: закрепить таймер тотема земли в flexbutton <номер>";
+TOTEM_HELP[8] = "|cffffff90/flextotem fire <number> |r: закрепить таймер тотема огня в flexbutton <номер>";
+TOTEM_HELP[9] = "|cffffff90/flextotem water <number> |r: закрепить таймер тотема воды в flexbutton <номер>";
+TOTEM_HELP[10] = "|cffffff90/flextotem stomp <number> |r: установить flexbutton  <номер> кнопки для stomper тотема.";
+TOTEM_HELP[11] = "|cffffff90/flextotem advanced [on|off] |r: вкл/выкл расширенный stomper режим.";
+TOTEM_HELP[12] = "|cffffff90/flextotem threshold [number] |r: stomp тотемы у который <число> до завершения.";
+TOTEM_HELP[13] = "|cffffff90/flextotem interval [number] |r: обновить не более одного раза в <число> миллисекунд.";
+TOTEM_HELP[14] = "|cffffff90/flextotem save <name> |r: сохранить текущую stomper последовательность в память.";
+TOTEM_HELP[15] = "|cffffff90/flextotem load <name> |r: загрузить stomper  последовательность из памяти.";
+TOTEM_HELP[16] = "|cffffff90/flextotem preset [preset] |r: изменить формат отчета, когда ничего нет.";
+TOTEM_HELP[17] = "|cffffff90/flextotem report [command] |r: сообщить текущую stomper последовательность вашей группе.";
+TOTEM_HELP[18] = "|cffffff90/flextotem lock [on|off] |r: переключение блокировки/разблокировки настроек по умолчанию.";
+TOTEM_HELP[19] = "|cffffff90/flextotem update |r: обновить тотемы в настройках по умолчанию.";
+TOTEM_HELP[20] = "|cffffff90/flextotem remove |r: удалить настройки по умолчанию.";
+TOTEM_HELP[21] = "|cffffff90/flextotem default |r: установить настройки по умолчанию.";
+
+TOTEM_DEFAULT_PRESET = "/p Как насчет $s?";
+
+TOTEM_SETTINGS_LOADED = "Версия $V - загружена.";
+TOTEM_SETTINGS_DEBUG_ENABLED = "Отладка включена.";
+TOTEM_SETTINGS_DEBUG_DISABLED = "Отладка отключена.";
+TOTEM_SETTINGS_SILENT_ENABLED = "\"Полная тишина\" теперь активна.";
+TOTEM_SETTINGS_SILENT_DISABLED = "Теперь снова отображаются уведомления.";
+TOTEM_SETTINGS_RESET = "Исходные настройки будут восстановлены. ";
+TOTEM_SETTINGS_BUTTON_CONFIRM = "$E тотем таймер установлен для отображение на кнопке $B.";
+TOTEM_SETTINGS_BUTTON_STOMP = "Stomper переназначен и применяется к кнопке $B.";
+TOTEM_SETTINGS_ADVANCED_ENABLED = "Расширенный режим stomper - включен. Восстановление и порог - учитываются.";
+TOTEM_SETTINGS_ADVANCED_DISABLED = "Расширенный stomper режим - отключен. ";
+TOTEM_SETTINGS_THRESHOLD = "Stomper порог пере-использования установлен на $T сек.";
+TOTEM_SETTINGS_INTERVAL = "Время между обновлениями установлено на $T мс.";
+TOTEM_SETTINGS_SAVE = "Stomper последовательность сохраняется в  '$S'.";
+TOTEM_SETTINGS_LOAD = "Stomper последовательность загружена с '$S'.";
+TOTEM_SETTINGS_REPORT_PRESET = "Пресет отчета изменен на '$P'.";
+TOTEM_SETTINGS_DEFAULT_WARNING = "Это очистит кнопки $A - $Z. Продолжить?";
+TOTEM_SETTINGS_REMOVE_WARNING = "Это удалит текущие FlexTotem настройки с FlexBar. Продолжить?";
+TOTEM_SETTINGS_UPDATE_WARNING = "Используется для обновления totemspells, если вы используете настройки по умолчанию. Продолжить?";
+TOTEM_SETTINGS_LOCK_ENABLED = "Настройки по умолчанию теперь заблокированы.";
+TOTEM_SETTINGS_LOCK_DISABLED = "Настройки по умолчанию теперь разблокированы.";
+TOTEM_SETTINGS_NO_SEQUENCE = "У вас нет stomper последовательности для отчета.";
+
+elseif ( GetLocale() == "deDE" ) then
 	-- German translation by Redskull
 
 	--[[ CRUCIAL LOCALIZATION ]]--
@@ -156,6 +276,7 @@ if ( GetLocale() == "deDE" ) then
 	TOTEM_SHAMAN = "Schamane";
 
 	TOTEM_NAME_STRING = "Totem $N";
+	TOTEM_SENTRYSEARING_STRING = "Totem $N";
 
 	TOTEM_CAST_REGEX = "Du wirkst Totem (.+).";
 	TOTEM_DEATH_REGEX = "Totem (.+) ?(%a*) ist zerst\195\182rt.";
@@ -165,6 +286,7 @@ if ( GetLocale() == "deDE" ) then
 	};
 
 	TOTEM_NAME_REGEX = "Totem (.+)";
+	TOTEM_NAME_REGEX_2 = "NONE";
 	TOTEM_RANK_REGEX = "Rang (%d+)";
 	TOTEM_RANK_NAME_REGEX = "%((Rang %d+)%)";
 	TOTEM_ELEMENT_REGEX = "Werkzeuge: (.+)totem";
@@ -271,6 +393,7 @@ elseif (GetLocale() == "frFR") then
 	TOTEM_SHAMAN = "Chaman"
 
 	TOTEM_NAME_STRING = "Totem $N";
+	TOTEM_SENTRYSEARING_STRING = "Totem $N";
 
 	TOTEM_CAST_REGEX = "Vous cr\195\169ez un Totem (.+).";
 	TOTEM_DEATH_REGEX = "Totem (.+) ?(%a*) est d/195/169truit.";
@@ -280,6 +403,7 @@ elseif (GetLocale() == "frFR") then
 	};
 
 	TOTEM_NAME_REGEX = "Totem (.+)";
+	TOTEM_NAME_REGEX_2 = "NONE";
 	TOTEM_RANK_REGEX = "Rang (%d+)";
 	TOTEM_RANK_NAME_REGEX = "%((Rang %d+)%)";
 	TOTEM_ELEMENT_REGEX = "Outils\194\160: Totem d[e'][ ]?(.+)";
@@ -389,6 +513,7 @@ elseif (GetLocale() == "zhCN") then
 	TOTEM_SHAMAN = "萨满祭司";
 
 	TOTEM_NAME_STRING = "$N图腾";
+	TOTEM_SENTRYSEARING_STRING = "$N图腾";
 
 	TOTEM_CAST_REGEX = "你施放了(.+)图腾。";
 	TOTEM_DEATH_REGEX = "(.+)图腾 ?(%a*)被摧毁了。";
@@ -401,6 +526,7 @@ elseif (GetLocale() == "zhCN") then
 
 
 	TOTEM_NAME_REGEX = "(.+)图腾";
+	TOTEM_NAME_REGEX_2 = "NONE";
 	TOTEM_RANK_REGEX = "等级 (%d+)";
 	TOTEM_RANK_NAME_REGEX = "%((等级 %d+)%)";
 	TOTEM_ELEMENT_REGEX = "工具：(.+)图腾";

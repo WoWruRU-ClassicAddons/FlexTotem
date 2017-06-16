@@ -461,7 +461,12 @@ end
 function Totem_CastSpell(id, book)
 	TotemState = nil;
 	local name, r = GetSpellName(id, book);
-	name = string.gfind(name, TOTEM_NAME_REGEX)();
+	n = string.gfind(name, TOTEM_NAME_REGEX)();
+	if n then
+    name = n;
+	else
+    name = string.gfind(name, TOTEM_NAME_REGEX_2)();
+	end
 	if name then
 		if TotemData[name] then
 			local start, duration = GetSpellCooldown(id,book);
@@ -492,7 +497,12 @@ function Totem_UseAction(id, number, target)
 		FlexBarTooltip:SetAction(id);
 		local name = FlexBarTooltipTextLeft1:GetText();
 		if name then
-			name = string.gfind(name, TOTEM_NAME_REGEX)();
+			n = string.gfind(name, TOTEM_NAME_REGEX)();
+		if n then
+		name = n;
+		else
+		name = string.gfind(name, TOTEM_NAME_REGEX_2)();
+		end
 			if name then
 				if TotemData[name] then
 					Totem = {};
@@ -520,7 +530,12 @@ function Totem_CastSpellByName(name)
 	end
 	TotemState = nil;
 	local name, r = GetSpellName(id, BOOKTYPE_SPELL);
-	name = string.gfind(name, TOTEM_NAME_REGEX)();
+	n = string.gfind(name, TOTEM_NAME_REGEX)();
+	if n then
+    name = n;
+	else
+    name = string.gfind(name, TOTEM_NAME_REGEX_2)();
+	end
 	if name then
 		if TotemData[name] then
 			local start, duration = GetSpellCooldown(id, BOOKTYPE_SPELL);
@@ -824,6 +839,10 @@ function Totem_TotemName(name)
 	return gsub(TOTEM_NAME_STRING, "$N", name);
 end
 
+function Totem_SentrySearing_TotemName(name)
+	return gsub(TOTEM_SENTRYSEARING_STRING, "$N", name);
+end
+
 function Totem_FormatTime(seconds)
 	local d, h, m, s;
 	local text;
@@ -917,7 +936,7 @@ function Totem_Update()
 
 	for n = start, start + 27 do Totem_DropSpell(n, ""); end
 
-	Totem_DropSpell(start + 5, Totem_TotemName(TOTEM_SENTRY));
+	Totem_DropSpell(start + 5, Totem_SentrySearing_TotemName(TOTEM_SENTRY));
 	Totem_DropSpell(start + 6, Totem_TotemName(TOTEM_WINDWALL));
 	Totem_DropSpell(start + 7, Totem_TotemName(TOTEM_WINDFURY));
 	Totem_DropSpell(start + 8, Totem_TotemName(TOTEM_NATURE_RESISTANCE));
@@ -934,7 +953,7 @@ function Totem_Update()
 	Totem_DropSpell(start + 17, Totem_TotemName(TOTEM_FROST_RESISTANCE));
 	Totem_DropSpell(start + 18, Totem_TotemName(TOTEM_FLAMETONGUE));
 	Totem_DropSpell(start + 19, Totem_TotemName(TOTEM_FIRE_NOVA));
-	Totem_DropSpell(start + 20, Totem_TotemName(TOTEM_SEARING));
+	Totem_DropSpell(start + 20, Totem_SentrySearing_TotemName(TOTEM_SEARING));
 	Totem_DropSpell(start + 21, Totem_TotemName(TOTEM_MAGMA));
 
 	Totem_DropSpell(start + 22, Totem_TotemName(TOTEM_STONECLAW));
